@@ -87,7 +87,7 @@ const Chat = () => {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`message ${msg.sender === "Gobalu" ? "own" : ""}`} // Apply "own" class for the current user's messages
+            className={`messages ${msg.sender === "Gobalu" ? "own" : ""}`} // Apply "own" class for the current user's messages
           >
             <div className="texts">
               <p>{msg.text}</p>
