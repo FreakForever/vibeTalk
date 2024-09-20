@@ -7,6 +7,7 @@ import Notification from "./components/notification/notification";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./lib/firebase"; // Ensure auth is imported correctly
 
+
 const App = () => {
   const [user, setUser] = useState(null); // Initialize user state to null
 

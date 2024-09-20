@@ -7,6 +7,7 @@ import { collection, onSnapshot } from 'firebase/firestore'; // Firestore method
 const ChatList = ({ setSelectedUser }) => {
   const [addMode, setAddMode] = useState(false);
   const [users, setUsers] = useState([]); // Store users list
+  const [searchQuery, setSearchQuery] = useState(''); // State to store search query
 
   // Fetch users in real-time
   useEffect(() => {
@@ -17,12 +18,24 @@ const ChatList = ({ setSelectedUser }) => {
     return () => unsubscribe();
   }, []);
 
+  // Filtered users based on search query
+  const filteredUsers = users.filter(
+    (user) =>
+      user.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className='chatList'>
       <div className="search">
         <div className="searchBar">
           <img src='/search.png' alt="" />
-          <input type='text' placeholder='search' />
+          <input 
+            type='text' 
+            placeholder='search'
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)} // Update search query on input change
+          />
         </div>
         <img
           src={addMode ? './minus.png' : './plus.png'}
@@ -32,8 +45,8 @@ const ChatList = ({ setSelectedUser }) => {
         />
       </div>
 
-      {/* Display the list of users */}
-      {users.map((user) => (
+      {/* Display the list of filtered users */}
+      {filteredUsers.map((user) => (
         <div
           className="item"
           key={user.id}

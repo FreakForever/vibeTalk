@@ -71,14 +71,9 @@ const Chat = () => {
         <div className="user">
           <img src="./avatar.png" alt="User Avatar" />
           <div className="texts">
-            <span>Gobalu</span>
+            <span>Ashwin</span>
             <p>Active Chat</p>
           </div>
-        </div>
-        <div className="icons">
-          <img src="./phone.png" alt="Phone" />
-          <img src="./video.png" alt="Video" />
-          <img src="./info.png" alt="Info" />
         </div>
       </div>
 
@@ -105,11 +100,6 @@ const Chat = () => {
 
       {/* Bottom section with input, icons, and emoji picker */}
       <div className="bottom">
-        <div className="icons">
-          <img src="./img.png" alt="Attach Image" />
-          <img src="./camera.png" alt="Camera" />
-          <img src="./mic.png" alt="Microphone" />
-        </div>
         <input
           type="text"
           placeholder="Type a message.."

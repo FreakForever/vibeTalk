@@ -28,18 +28,7 @@ const Details = ({ user, handleLogout }) => {
       </div>
       <div className="info">
         <div className="option">
-          <div className="title">
-            <span>Privacy & Help</span>
-            <img src="./arrowUp.png" alt="" />
-          </div>
-        </div>
-        <div className="option">
-          <div className="title">
-            <span>Shared Photos</span>
-            <img src="./arrowDown.png" alt="" />
-          </div>
           <div className="photos">
-            {/* Dynamically render shared photos */}
             {userData?.sharedPhotos?.map((photo, index) => (
               <div className="photoItem" key={index}>
                 <div className="photoDetail">
@@ -51,19 +40,6 @@ const Details = ({ user, handleLogout }) => {
             ))}
           </div>
         </div>
-        <div className="option">
-          <div className="title">
-            <span>Chat Settings</span>
-            <img src="./arrowUp.png" alt="" />
-          </div>
-        </div>
-        <div className="option">
-          <div className="title">
-            <span>Shared Files</span>
-            <img src="./arrowUp.png" alt="" />
-          </div>
-        </div>
-        <button>Block User</button>
         <button className="logout" onClick={handleLogout}>Logout</button>
       </div>
     </div>
