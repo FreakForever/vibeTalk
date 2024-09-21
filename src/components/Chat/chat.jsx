@@ -105,7 +105,7 @@ const Chat = () => {
     <div className="chat">
       <div className="top">
         <div className="user">
-          <img src="./avatar.png" alt="User Avatar" />
+          <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st%3D1726924118~exp%3D1726927718~hmac%3Dbed62af7df07de6219e5bebbbbdec798516af0a9b721be2e0ee5040d85b8bcd0&w=1480" alt="User Avatar" />
           <div className="texts">
             <span>Ashwin</span>
             <p>Active Chat</p>
@@ -119,7 +119,7 @@ const Chat = () => {
             key={msg.id}
             className={`messages ${msg.sender === "Gobalu" ? "own" : "other"}`}
           >
-            {msg.sender !== "Gobalu" && <img src="./avatar.png" alt="User Avatar" className="avatar" />}
+            {msg.sender !== "Gobalu" && <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st%3D1726924118~exp%3D1726927718~hmac%3Dbed62af7df07de6219e5bebbbbdec798516af0a9b721be2e0ee5040d85b8bcd0&w=1480" alt="User Avatar" className="avatar" />}
             <div className="texts">
               <p>{msg.text}</p>
               <span>
@@ -128,7 +128,7 @@ const Chat = () => {
                   : "Just now"}
               </span>
             </div>
-            {msg.sender === "Gobalu" && <img src="./avatar.png" alt="User Avatar" className="avatar" />}
+            {msg.sender === "Gobalu" && <img src="https://firebasestorage.googleapis.com/v0/b/reactchat-78ba9.appspot.com/o/images%2F1726916715570_favicon.png?alt=media&token=1cc49406-210e-4d6d-ae8b-1884c73c792a" alt="User Avatar" className="avatar" />}
           </div>
         ))}
         <div ref={messageEndRef}></div>

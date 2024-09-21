@@ -10,7 +10,6 @@ import { auth } from "./lib/firebase"; // Ensure auth is imported correctly
 
 const App = () => {
   const [user, setUser] = useState(null); // Initialize user state to null
-
   // Handle the latest authentication status
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (currentUser) => {
