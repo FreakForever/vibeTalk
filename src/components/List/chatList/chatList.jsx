@@ -53,9 +53,8 @@ const ChatList = ({ setSelectedUser }) => {
           onClick={() => setSelectedUser(user)} // Set selected user on click
         >
           <img src="./avatar.png" alt="" />
-          <div className="texts">
+          <div className="textUser">
             <span>{user.username}</span>
-            <p>{user.email}</p>
           </div>
         </div>
       ))}

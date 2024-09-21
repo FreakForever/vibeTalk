@@ -24,7 +24,7 @@ const Details = ({ user, handleLogout }) => {
       <div className="user">
         <img src={userData?.avatar || "./avatar.png"} alt="" /> {/* Display user avatar */}
         <h2>{userData?.username || "User Name"}</h2> {/* Display user name */}
-        <p>{userData?.bio || "No bio available."}</p> {/* Display user bio */}
+        <p>{userData?.bio || "Go with the flow."}</p> {/* Display user bio */}
       </div>
       <div className="info">
         <div className="option">

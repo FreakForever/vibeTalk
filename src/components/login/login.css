@@ -178,4 +178,55 @@
   100% { transform: rotate(360deg); }
 }
 
-  
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+  .form-container {
+    max-width: 900px; /* Adjust max width for smaller screens */
+    gap: 20px; /* Reduce gap between form sections */
+  }
+
+  .form-section {
+    padding: 30px; /* Adjust padding for smaller screens */
+    max-width: 400px; /* Adjust max width */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100vw;
+    height: auto;
+    margin: 20px 0; /* Add margin for smaller screens */
+  }
+
+  .form-container {
+    flex-direction: column; /* Stack form sections vertically */
+    max-width: 100%; /* Use full width */
+  }
+
+  .form-section {
+    max-width: 90%; /* Adjust max width */
+    padding: 20px; /* Reduce padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section {
+    padding: 15px; /* Further reduce padding */
+  }
+
+  .input-field {
+    padding: 10px; /* Adjust input field padding */
+  }
+
+  .form-button {
+    padding: 12px; /* Adjust button padding */
+  }
+
+  h2 {
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .separator span {
+    font-size: 14px; /* Adjust font size */
+  }
+}
