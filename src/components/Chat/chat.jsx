@@ -224,7 +224,7 @@ const Chat = () => {
                   : "Just now"}
               </span>
             </div>
-            {msg.sender === "Gobalu" && <img src="./favicon.png" alt="User Avatar" className="avatar" />}
+            {msg.sender === "Gobalu" && <img src="./avatar.png" alt="User Avatar" className="avatar" />}
           </div>
         ))}
         <div ref={messageEndRef}></div>
