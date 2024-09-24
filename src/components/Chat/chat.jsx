@@ -128,7 +128,7 @@ const Chat = () => {
                   : "Just now"}
               </span>
             </div>
-            {msg.sender === "Gobalu" && <img src="https://firebasestorage.googleapis.com/v0/b/reactchat-78ba9.appspot.com/o/images%2F1726916715570_favicon.png?alt=media&token=1cc49406-210e-4d6d-ae8b-1884c73c792a" alt="User Avatar" className="avatar" />}
+            {msg.sender === "Gobalu" && <img src="./favicon.png" alt="User Avatar" className="avatar" />}
           </div>
         ))}
         <div ref={messageEndRef}></div>
