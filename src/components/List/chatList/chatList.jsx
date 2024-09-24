@@ -37,12 +37,6 @@ const ChatList = ({ setSelectedUser }) => {
             onChange={(e) => setSearchQuery(e.target.value)} // Update search query on input change
           />
         </div>
-        <img
-          src={addMode ? './minus.png' : './plus.png'}
-          alt='plus'
-          className='add'
-          onClick={() => setAddMode((prev) => !prev)}
-        />
       </div>
 
       {/* Display the list of filtered users */}
