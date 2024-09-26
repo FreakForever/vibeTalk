@@ -7,6 +7,7 @@ import Notification from "./components/notification/notification";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "./lib/firebase"; // Ensure both auth and db (Firestore) are imported correctly
 import { collection, onSnapshot, query, orderBy, addDoc, serverTimestamp } from "firebase/firestore"; // Import Firestore functions
+import './index.css'
 
 const App = () => {
   const [user, setUser] = useState(null); // Initialize user state to null
