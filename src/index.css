@@ -1,276 +1,254 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  
-  body {
-    background-image: url('https://images.unsplash.com/photo-1488409688217-e6053b1e8f42?q=80&w=2873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1488409688217-e6053b1e8f42?q=80&w=2873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  width: 90vw;
+  height: 90vh;
+  background-color: rgba(17, 25, 40, 0.75);
+  backdrop-filter: blur(19px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  padding: 50px;
+  font-size: 30px;
+  border-radius: 10px;
+  background-color: rgba(17, 25, 40, 0.9);
+}
+
+.chat {
+  flex: 2;
+  border-left: 1px solid #d3d3d3;
+  border-right: 1px solid #d3d3d3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.top {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dddddd35;
+
+  .user {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Making the body 100vh */
+    gap: 10px;
   }
-  
-  .container {
-    width: 90vw;
-    height: 90vh;
-    background-color: rgba(17, 25, 40, 0.75);
-    backdrop-filter: blur(19px) saturate(180%);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    display: flex;
-    flex-direction: column; /* Default to column for smaller screens */
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
   }
-  
-  .loading {
-    padding: 50px;
-    font-size: 30px;
-    border-radius: 10px;
-    background-color: rgba(17, 25, 40, 0.9);
-  }
-  
-  .chat {
-    flex: 2;
-    border-left: 1px solid #d3d3d3;
-    border-right: 1px solid #d3d3d3;
-    height: 100%;
+
+  .texts {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    color: white; /* Overall text color */
+    gap: 3px;
+    color: white;
   }
-  
-  .top {
-    padding: 20px;
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: 300;
+    color: white;
+  }
+
+  .icons {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #dddddd35;
-  
-    .user {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-  
+    gap: 10px;
+
     img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  
-    .texts {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      color: white;
-    }
-  
-    span {
-      font-size: 18px;
-      font-weight: bold;
-    }
-  
-    p {
-      font-size: 14px;
-      font-weight: 300;
-      color: white;
-    }
-  
-    .icons {
-      display: flex;
-      gap: 20px;
-  
-      img {
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-      }
-    }
-  }
-  
-  .center {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    color: white; /* Ensures all text in the center is white */
-  
-    .message {
-      max-width: 70%;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 15px;
-      border-radius: 10px;
-      background-color: #333; /* Background for received messages */
-      color: white; /* White text for clarity */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-      word-wrap: break-word; /* Break long words */
-  
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-  
-      .texts {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-  
-        p {
-          margin: 0;
-        }
-      }
-    }
-  
-    /* Style for user's own messages */
-    .message.own {
-      align-self: flex-end;
-      background-color: #5183fe; /* Different background for own messages */
-      color: white;
-  
-      img {
-        display: none; /* Hide avatar for own messages */
-      }
-  
-      .texts {
-        p {
-          background-color: transparent; /* Keep transparent for own messages */
-        }
-      }
-    }
-  
-    .texts {
-      color: white; /* Ensure text is white */
-    }
-  }
-  
-  .bottom {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between elements */
-    border-top: 1px solid #dddddd35;
-    position: relative;
-  
-    .icons {
-      display: flex;
-      gap: 15px;
-  
-      img {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-      }
-    }
-  
-    input {
-      flex: 1;
-      background-color: transparent;
-      border: 1px solid #444;
-      border-radius: 20px;
-      outline: none;
-      color: white;
-      padding: 10px;
-      font-size: 16px;
-    }
-  
-    input::placeholder {
-      color: white;
-    }
-  
-    input:focus {
-      border: 1px solid #0084ff;
-    }
-  }
-  
-  .emoji {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-  
-    img {
-      width: 24px;
-      height: 24px;
+      width: 18px;
+      height: 18px;
       cursor: pointer;
     }
   }
-  
-  .sendButton {
-    background-color: #0084ff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .sendButton:hover {
-    background-color: #005bb5;
-  }
-  
-  .emoji-picker {
-    position: absolute;
-    top: -200px;
-    right: 20px;
-    background-color: white;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
+}
+
+.center {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+
+  .message {
+    max-width: 80%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     padding: 10px;
-    z-index: 1000;
-    display: none;
-    width: 250px;
-    height: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-  }
-  
-  .emoji-picker.active {
-    display: block;
-  }
-  
-  /* Media Queries for Responsive Design */
-  @media (min-width: 768px) {
-    .container {
-      flex-direction: row; /* Change to row on larger screens */
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
     }
-  
-    .chat {
-      border-left: 1px solid #d3d3d3; /* Keep left border for larger screens */
-    }
-    
-    .top, .bottom {
-      padding: 20px; /* Maintain padding on larger screens */
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      p {
+        margin: 0;
+      }
     }
   }
-  
-  @media (max-width: 768px) {
-    .chat {
-      flex-direction: column; /* Stack items on smaller screens */
-    }
-  
-    .top {
-      padding: 10px; /* Adjust padding for smaller screens */
-    }
-  
-    .bottom {
-      padding: 10px; /* Adjust padding for smaller screens */
-      flex-direction: column; /* Stack input and icons */
-    }
-  
-    input {
-      margin-top: 10px; /* Space above the input */
+
+  .message.own {
+    align-self: flex-end;
+    background-color: #5183fe;
+    color: white;
+
+    img {
+      display: none;
     }
   }
-  
+}
+
+.bottom {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-top: 1px solid #dddddd35;
+  position: relative;
+
+  .icons {
+    display: flex;
+    gap: 10px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid #444;
+    border-radius: 20px;
+    outline: none;
+    color: white;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  input::placeholder {
+    color: white;
+  }
+
+  input:focus {
+    border: 1px solid #0084ff;
+  }
+}
+
+.sendButton {
+  background-color: #0084ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sendButton:hover {
+  background-color: #005bb5;
+}
+
+.emoji-picker {
+  position: absolute;
+  top: -200px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1000;
+  display: none;
+  width: 200px;
+  height: 180px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.emoji-picker.active {
+  display: block;
+}
+
+/* Media Queries for iPhone SE (max-width: 375px) */
+@media (max-width: 375px) {
+  body {
+    height: auto;
+    padding: 10px; /* Add padding for small screens */
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+    border-radius: 0; /* Remove rounded borders for small screens */
+  }
+
+  .top {
+    padding: 5px;
+  }
+
+  img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .bottom {
+    padding: 5px;
+  }
+
+  input {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .sendButton {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
