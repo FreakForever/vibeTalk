@@ -29,10 +29,10 @@ const ChatList = ({ setSelectedUser }) => {
     <div className='chatList'>
       <div className="search">
         <div className="searchBar">
-          <img src='/search.png' alt="" />
+          <img src='/search.png' alt="Search Icon" />
           <input 
             type='text' 
-            placeholder='search'
+            placeholder='Search'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)} // Update search query on input change
           />
@@ -40,21 +40,26 @@ const ChatList = ({ setSelectedUser }) => {
       </div>
 
       {/* Display the list of filtered users */}
+      <h3 className='textUser'>Group Members</h3>
       {filteredUsers.map((user) => (
         <div
           className="item"
           key={user.id}
           onClick={() => setSelectedUser(user)} // Set selected user on click
         >
-          <img src="https://firebasestorage.googleapis.com/v0/b/reactchat-78ba9.appspot.com/o/images%2F1726916715570_favicon.png?alt=media&token=1cc49406-210e-4d6d-ae8b-1884c73c792a" alt="" />
-          <div className="textUser">
-            <span>{user.username}</span>
+          <div className="userInfo">
+            <div className="userInitials">
+              {user.username.charAt(0).toUpperCase()} {/* Display the first letter of the username */}
+            </div>
+            <div className="textUser">
+              <span>{user.username}</span>
+            </div>
           </div>
         </div>
       ))}
       
       {/* Conditionally show AddUser component */}
-      {addMode && <AddUser />}
+      {addMode && <AddUser key="addUserComponent" />} {/* Added key for tracking */}
     </div>
   );
 };

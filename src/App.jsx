@@ -5,11 +5,13 @@ import List from "./components/list/list";
 import Login from "./components/login/login";
 import Notification from "./components/notification/notification";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "./lib/firebase"; // Ensure auth is imported correctly
-
+import { auth, db } from "./lib/firebase"; // Ensure both auth and db (Firestore) are imported correctly
+import { collection, onSnapshot, query, orderBy, addDoc, serverTimestamp } from "firebase/firestore"; // Import Firestore functions
 
 const App = () => {
   const [user, setUser] = useState(null); // Initialize user state to null
+  const [messages, setMessages] = useState([]); // State for storing chat messages
+
   // Handle the latest authentication status
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (currentUser) => {
@@ -21,6 +23,38 @@ const App = () => {
       unSub(); // Cleanup subscription
     };
   }, []);
+
+  // Real-time Firestore messages listener
+  useEffect(() => {
+    if (user) {
+      const q = query(collection(db, "messages"), orderBy("timestamp", "asc")); // Order messages by timestamp
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        const loadedMessages = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setMessages(loadedMessages); // Set the state with the new messages
+      });
+
+      return () => unsubscribe(); // Cleanup Firestore listener
+    }
+  }, [user]);
+
+  // Function to send a message
+  const sendMessage = async (text) => {
+    if (!text) return; // Don't send empty messages
+    try {
+      await addDoc(collection(db, "messages"), {
+        text,
+        uid: user.uid,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        timestamp: serverTimestamp(), // Add timestamp for proper ordering
+      });
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
 
   // Logout function
   const handleLogout = async () => {
@@ -36,9 +70,9 @@ const App = () => {
     <div className="container">
       {user ? (
         <>
-          {/* Pass the current user as a prop to List, Chat, and Details */}
+          {/* Pass user, messages, and sendMessage as props to components */}
           <List user={user} />
-          <Chat user={user} />
+          <Chat user={user} messages={messages} sendMessage={sendMessage} />
           <Details user={user} handleLogout={handleLogout} />
         </>
       ) : (
